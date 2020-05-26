@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  sensor_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -103,10 +104,7 @@ add_service_files(
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES hknam_tutorial
-#  CATKIN_DEPENDS message_generation roscpp rospy std_msgs
-#  DEPENDS system_lib
+  CATKIN_DEPENDS roscpp sensor_msgs
 )
 
 ###########
@@ -169,6 +167,11 @@ target_link_libraries(service_client ${catkin_LIBRARIES})
 add_executable(service_publiser src/hknam_service_publisher.cpp)
 add_dependencies(service_publiser ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(service_publiser ${catkin_LIBRARIES})
+
+add_executable(lidar_tutorial src/lidar_tutorial.cpp)
+add_dependencies(lidar_tutorial ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(lidar_tutorial ${catkin_LIBRARIES})
+
 #############
 ## Install ##
 #############

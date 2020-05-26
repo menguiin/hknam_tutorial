@@ -1,5 +1,6 @@
 int64 a
 int64 b
-int64 stamp1
+float64 stamp1
 ---
 int64 result
+float64 stamp2

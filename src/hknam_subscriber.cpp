@@ -3,11 +3,11 @@
 
 void chatterCallback(const hknam_tutorial::Message1::ConstPtr& msg)
 {
-    ROS_INFO("receieve time = %d", msg->stamp.sec);
+    ROS_INFO("receieve time = %d", msg->stamp1.sec);
     ROS_INFO("receieve msg1 = %d", msg->data1);
     ROS_INFO("receieve count = %d", msg->data3);
 
-    ROS_INFO("receieve time = %d", msg->stamp.sec);
+    ROS_INFO("receieve time = %d", msg->stamp2.sec);
     ROS_INFO("receieve msg2 = %d", msg->data2);
     ROS_INFO("receieve count = %d", msg->data4);
 

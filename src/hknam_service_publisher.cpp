@@ -1,5 +1,5 @@
 #include "ros/ros.h"
-#include "ros_tutorials_service/msgtutorial.h"
+#include "hknam_tutorial/msgtutorial.h"
 #include <stdio.h>
 
 int main(int argc, char **argv)
@@ -7,10 +7,10 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "service_publisher");
     ros::NodeHandle nh;
 
-    ros::Publisher pub = nh.advertise<ros_tutorials_service::msgtutorial>("chatter", 100);
+    ros::Publisher pub = nh.advertise<hknam_tutorial::msgtutorial>("chatter", 100);
 
     ros::Rate loop_rate(10);
-    ros_tutorials_service::msgtutorial msg;
+    hknam_tutorial::msgtutorial msg;
     
 
     int count1 = 0;
@@ -20,14 +20,17 @@ int main(int argc, char **argv)
     while(ros::ok())
     {
         printf("Put you message: ");
-        scanf("%d\n", &num1);
+        scanf("%d", &num1);
         msg.stamp = ros::Time::now();
 
         printf("Put you message: ");
-        scanf("%d\n", &num2);
-
+        scanf("%d", &num2);
         count1 += 1;
 
+        if(num1 == 0 && num2 == 0)
+        {
+            break;
+        }
         msg.stamp = ros::Time::now();
         msg.data1 = num1;
         msg.data2 = num2;
